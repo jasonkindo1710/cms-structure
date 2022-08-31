@@ -1,0 +1,1 @@
+export const baseUrl: string = 'http://js-post-api.herokuapp.com/api'
