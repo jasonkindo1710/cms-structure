@@ -1,23 +1,26 @@
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input, message } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { loginRequest } from "../../../redux/actions/loginAction";
+import { useAppDispatch, useAppSelector } from "../../../redux/app/hooks";
+import {authActions} from '../../../redux/slice/authSlice'
 
 const Login: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+   const isLogging = useAppSelector((state) => state.auth.logging);
   const router = useRouter();
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleLoginClick = () => {
     dispatch(
-      loginRequest({
+      authActions.login({
         username: userName,
         password: password,
       }),
+      //tam thoi de user va admin nhu the nay vi chua co api
       router.push('/')
+      // router.push('/admin/landingpage')
+      
     );
   };
   const onFinish = (values: any) => {
@@ -46,6 +49,7 @@ const Login: React.FC = () => {
         >
           <Input
             value={userName}
+            placeholder={"Please select user or admin"}
             onChange={(e) => setUserName(e.target.value)}
           ></Input>
         </Form.Item>
@@ -57,6 +61,7 @@ const Login: React.FC = () => {
         >
           <Input.Password
             value={password}
+            placeholder={"pass"}
             onChange={(e) => setPassword(e.target.value)}
           ></Input.Password>
         </Form.Item>

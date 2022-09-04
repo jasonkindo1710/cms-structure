@@ -1,11 +1,11 @@
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import "../../styles/globals.css";
-import store from "../redux/store/store";
 import LayoutPage from "../layout/Layout";
 import {appWithTranslation} from 'next-i18next'
 import '../i18n/i18n'
 import { useEffect, useState } from "react";
+import { store } from "../redux/app/store";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);

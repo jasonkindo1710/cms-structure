@@ -14,13 +14,13 @@ const Header = () => {
       </div>
 
       <div className="navtabs">
-        <Link href="/news">
+        <Link href="/user/news">
           <a>{t("news")}</a>
         </Link>
-        <Link href="/aboutus">
+        <Link href="/user/aboutus">
           <a>{t("aboutus")}</a>
         </Link>
-        <Link href="/contactus">
+        <Link href="/user/contactus">
           <a>{t("contactus")}</a>
         </Link>
         <Link href="/auth/login">
