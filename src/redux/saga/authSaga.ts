@@ -1,7 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { call, delay, fork, put, take } from "redux-saga/effects";
-import { authActions, LoginPayload } from "../slice/authSlice";
-
+import { authActions } from "../slice/authSlice";
+import {LoginPayload} from '../types/user'
 function* handleLogin(payload: LoginPayload) {
   try {
     yield delay(1000) // doi lai goi api
