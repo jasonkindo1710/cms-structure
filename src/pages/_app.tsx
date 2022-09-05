@@ -2,10 +2,11 @@ import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import "../../styles/globals.css";
 import LayoutPage from "../layout/Layout";
-import {appWithTranslation} from 'next-i18next'
-import '../i18n/i18n'
+import { appWithTranslation } from "next-i18next";
+import "../i18n/i18n";
 import { useEffect, useState } from "react";
 import { store } from "../redux/app/store";
+import "../assets/css/style.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [showChild, setShowChild] = useState(false);
@@ -16,16 +17,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   if (!showChild) {
     return null;
   }
-  if (typeof window === 'undefined') {
+  if (typeof window === "undefined") {
     return <></>;
   } else {
-  return (
-    <Provider store={store}>
-      <LayoutPage> 
-        <Component {...pageProps} />
-      </LayoutPage>
-    </Provider>
-  );
+    return (
+      <Provider store={store}>
+        <LayoutPage>
+          <Component {...pageProps} />
+        </LayoutPage>
+      </Provider>
+    );
   }
 }
 
