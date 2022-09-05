@@ -1,0 +1,132 @@
+.cms-media {
+    &-header {
+        display: flex;
+        align-items: center;
+        gap: 0 15px;
+        margin-bottom: 20px;
+
+        h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 24px;
+        }
+
+        a {
+            padding: 3px 8px;
+            background-color: white;
+            border: solid 1px rgb(160, 160, 219);
+            color: black;
+            font-size: 12px;
+            line-height: 15px;
+
+        }
+    }
+
+    &-navbar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        background-color: white;
+        padding: 10px 10px;
+        border: solid 1px rgb(184, 175, 175);
+        box-shadow: 2px 2px 12px 4px rgb(143 130 130 / 40%);
+
+        &-filter {
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+
+            a {
+                padding: 4px 15px;
+                background-color: white;
+                color: rgb(35, 35, 210);
+                border: solid 1px rgb(160, 160, 219);
+            }
+        }
+
+        &-search {
+            display: flex;
+            align-items: center;
+            gap: 0 10px;
+            width: fit-content;
+            position: relative;
+
+        }
+    }
+
+    &-content {
+        &-table {
+            border: solid 1px rgb(184, 175, 175);
+            box-shadow: 2px 2px 12px 4px rgb(143 130 130 / 40%);
+        }
+    }
+}
+
+
+
+// Add new media
+
+.cms-media {
+    &-addnew {
+        &-title {
+            font-size: 24px;
+            line-height: 30px;
+        }
+
+        .ant-upload-drag {
+            margin-top: 30px;
+            width: 100%;
+            padding: 60px 0;
+            border: dashed 2px;
+            box-shadow: 3px 3px 20px 5px rgb(181, 176, 176);
+        }
+
+
+        &-back {
+            margin-top: 30px;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+
+}
+
+
+// edit media
+
+.cms-media-edit {
+    &-title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    padding: 10px 30px;
+    border: solid 1px rgb(203, 202, 202);
+    box-shadow: 3px 3px 20px 4px rgb(203, 202, 202);
+
+    .ant-row {
+        display: block;
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+    }
+
+    &-item {
+        &-image {
+            display: flex;
+            flex-direction: column;
+
+            &-btn {
+                margin-top: 10px;
+                width: 80px;
+            }
+        }
+
+    }
+}
