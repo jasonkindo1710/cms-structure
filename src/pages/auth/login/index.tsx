@@ -1,30 +1,23 @@
 import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input, message } from "antd";
+import { Button, Form, Input } from "antd";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../redux/app/hooks";
-import { authActions } from "../../../redux/slice/authSlice";
+import React, { useEffect } from "react";
 
-const Login: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const isLogging = useAppSelector((state) => state.auth.logging);
-  const router = useRouter();
-  const [userName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+import AuthLayout from "../../../layout/Auth";
 
-  const handleLoginClick = () => {
-    dispatch(
-      authActions.login({
-        username: userName,
-        password: password,
-      })
-      //tam thoi de user va admin nhu the nay vi chua co api
-      // router.push("/")
-      // router.push('/admin/landingpage')
-    );
-  };
-  const onFinish = (values: any) => {
+const Login: React.FC<{
+  setType: React.Dispatch<React.SetStateAction<number>>;
+}> = ({ setType }) => {
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    form.setFieldsValue({
+      username: "abc",
+      password: "abc",
+    });
+  }, []);
+
+  const onFinish = (values: object) => {
     console.log("Success:", values);
   };
 
@@ -33,49 +26,48 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="cms-login-form">
+    <AuthLayout>
       <Form
         name="basic"
-        // labelCol={{ span: 8 }}
-        wrapperCol={{ offset: 4, span: 12 }}
-        initialValues={{ remember: true }}
+        form={form}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
+        className="cms-login-form"
       >
         <div className="cms-login-title">admin login</div>
         <Form.Item name="username">
-          <Input
-            prefix={<UserOutlined />}
-            placeholder="Username"
-            onChange={(e) => setUserName(e.target.value)}
-            required
-          />
+          <Input prefix={<UserOutlined />} placeholder="Username" required />
         </Form.Item>
 
         <Form.Item name="password">
           <Input
             prefix={<LockOutlined />}
-            onChange={(e) => setPassword(e.target.value)}
             type="password"
             placeholder="Password"
             required
           />
         </Form.Item>
 
-        <Form.Item>
-          <Link href="/forgot">
-            <a className="cms-login-register">Register</a>
-          </Link>
-        </Form.Item>
+        <div className="cms-login-box-link-center">
+          <div className="cms-login-space-around">
+            <Link href="/auth/register">
+              <a className="cms-login-link">register</a>
+            </Link>
 
-        <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-          <Button type="primary" htmlType="submit" onClick={handleLoginClick}>
+            <Link href="/auth/forgot-password">
+              <a className="cms-login-link">forgot password</a>
+            </Link>
+          </div>
+        </div>
+
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
             Sign In
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </AuthLayout>
   );
 };
 

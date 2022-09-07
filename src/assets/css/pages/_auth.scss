@@ -1,47 +1,205 @@
-.cms-login-form {
+.cms-auth-form {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(40deg, #4568dc, #b06ab3);
 
   .ant-form {
-    min-width: 60%;
-    min-height: 70%;
+    width: 400px;
+    max-width: 90%;
+    height: 400px;
+    max-height: 75%;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 20px;
-    padding: 40px 50px;
     box-sizing: border-box;
-    text-align: center;
+    background-color: #fff;
 
-    .cms-login-title {
-      font-size: 24px;
-      text-transform: capitalize;
-      text-align: center;
-      margin-bottom: 50px;
+    .ant-form-item {
+      margin-bottom: 18px;
+
+      .ant-row {
+        justify-content: center;
+
+        .ant-form-item-control-input-content {
+          justify-content: center;
+
+          .ant-input-affix-wrapper {
+            border: 3px solid $mb-bg-color;
+            transition: 0.3s;
+            border-radius: 20px;
+            box-sizing: border-box;
+            background-color: $mb-bg-color;
+            width: 90%;
+
+            &.ant-input-affix-wrapper-focused {
+              box-shadow: none;
+              border: 3px solid rgb(24 144 255 / 20%);
+            }
+          }
+
+          .ant-input {
+            border: none;
+            background-color: $mb-bg-color;
+
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+        .ant-btn {
+          width: 90%;
+          height: 40px;
+          margin-top: 10px;
+
+          &.ant-btn-primary {
+            display: flex;
+            border: none;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            background-color: #4568dc;
+            font-weight: 600;
+          }
+
+          &:hover {
+            background-color: #b06ab3;
+          }
+        }
+      }
     }
 
-    .ant-row {
-      justify-content: center;
+    &.cms-login-form {
+      .cms-login-title {
+        font-size: 24px;
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
 
-      .ant-input-affix-wrapper {
-        border: 3px solid $mb-bg-color;
-        transition: 0.3s;
-        border-radius: 20px;
-        box-sizing: border-box;
-        background-color: $mb-bg-color;
+      .cms-login-box-link-center {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
-        &.ant-input-affix-wrapper-focused {
-          box-shadow: none;
-          border: 3px solid rgb(24 144 255 / 20%);
+        .cms-login-space-around {
+          width: 85%;
+          max-width: 90%;
+          display: flex;
+          justify-content: space-between;
+
+          .cms-login-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: $mb-color-text-content;
+            opacity: 0.5;
+            transition: 0.3s;
+            text-transform: capitalize;
+
+            &:hover {
+              color: rgb(24 144 255);
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+
+    &.cms-forgot-form {
+      padding-top: 40px;
+
+      .cms-forgot-form-box-img {
+        text-align: center;
+        margin-bottom: 20px;
+        .cms-forgot-form-lock-icon {
+          font-size: 100px;
         }
       }
 
-      .ant-input {
-        border: none;
-        background-color: $mb-bg-color;
+      .cms-forgot-form-title {
+        font-size: 24px;
+        text-transform: capitalize;
+        text-align: center;
+      }
+      .cms-forgot-form-sub-title {
+        font-size: 14px;
+        text-align: center;
+        color: $mb-color-text-time;
+        margin-bottom: 20px;
+      }
 
-        &:focus {
-          box-shadow: none;
+      .cms-forgot-form-item {
+        height: 40px;
+        border-radius: 10px !important;
+      }
+
+      .cms-forgot-box-link-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        .cms-forgot-space-around {
+          width: 85%;
+          max-width: 90%;
+          display: flex;
+          justify-content: space-between;
+
+          .cms-forgot-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: $mb-color-text-content;
+            opacity: 0.5;
+            transition: 0.3s;
+            text-transform: capitalize;
+
+            &:hover {
+              color: rgb(24 144 255);
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+
+    &.cms-register-form {
+      height: 500px;
+      overflow: hidden;
+
+      .cms-register-form-title {
+        font-size: 24px;
+        text-transform: capitalize;
+        font-weight: 600;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+      }
+
+      .cms-register-box-link-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+
+        .cms-register-space-around {
+          width: 85%;
+          max-width: 90%;
+          display: flex;
+          justify-content: space-between;
+
+          .cms-register-link {
+            font-size: 12px;
+            font-weight: 600;
+            color: $mb-color-text-content;
+            opacity: 0.5;
+            transition: 0.3s;
+            text-transform: capitalize;
+
+            &:hover {
+              color: rgb(24 144 255);
+              opacity: 0.6;
+            }
+          }
         }
       }
     }
